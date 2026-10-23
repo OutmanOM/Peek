@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <PublishTrimmed>false</PublishTrimmed>
+    <AssemblyName>PeekSetup</AssemblyName>
+    <ApplicationIcon>Assets\PeekPreview.ico</ApplicationIcon>
+    <DefaultItemExcludes>$(DefaultItemExcludes);$(MSBuildProjectDirectory)\obj\**;$(MSBuildProjectDirectory)\bin\**</DefaultItemExcludes>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(PeekPayloadZip)' != '' and Exists('$(PeekPayloadZip)')">
+    <EmbeddedResource Include="$(PeekPayloadZip)" LogicalName="SetupExperience.PeekPayload.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Peek_Promo_v2.mp4" LogicalName="SetupExperience.Peek_Promo_v2.mp4" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3719.77" />
+  </ItemGroup>
+</Project>

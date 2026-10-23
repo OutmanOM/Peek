@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PeekPreview (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "PeekPreview (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
